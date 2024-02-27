@@ -52,12 +52,7 @@ stages:
         displayName: 'Test Angular'
         workingDirectory:  $(apploc)
 
-      # - task: Npm@1
-      #   displayName: 'Test Angular'
-      #   inputs:
-      #     command: 'custom'
-      #     customCommand: 'run test -- --watch false -- --code-coverage true'
-      #     workingDir: $(System.DefaultWorkingDirectory)/$(apploc)
+      - script: ls
           
       - task: PublishTestResults@2
         displayName: 'Publish Angular test results'
