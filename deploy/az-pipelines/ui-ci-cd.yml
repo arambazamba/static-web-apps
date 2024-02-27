@@ -15,7 +15,7 @@ pool:
   vmImage: "ubuntu-latest"
 
 variables:
-  nodeVer: '16.15.0'
+  nodeVer: '18.17.0'
   apploc: src/angular-swa
   # token: set as pipeline variable
 
