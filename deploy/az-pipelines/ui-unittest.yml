@@ -33,7 +33,7 @@ stages:
           versionSpec: $(nodeVer)
         displayName: Install Node $(nodeVer)
         
-      # - script: npm i -g @angular/cli@17        
+      - script: npm i -g @angular/cli@17        
       
       - task: Cache@2
         displayName: Setup Node Cache
@@ -47,7 +47,7 @@ stages:
         workingDirectory: $(apploc)
         condition: eq(variables['npmCache'],False)
       
-      - script: npm run test --watch false --code-coverage true --browsers ChromeHeadless
+      - script: ng test --watch false --code-coverage true --browsers ChromeHeadless
         displayName: 'Test Angular'
         workingDirectory:  $(apploc)
 
