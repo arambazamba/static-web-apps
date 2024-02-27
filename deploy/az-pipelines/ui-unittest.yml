@@ -53,6 +53,7 @@ stages:
         workingDirectory:  $(apploc)
 
       - script: ls
+        workingDirectory:  $(apploc)
           
       - task: PublishTestResults@2
         displayName: 'Publish Angular test results'
