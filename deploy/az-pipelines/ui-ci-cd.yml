@@ -70,7 +70,7 @@ stages:
           inputs:
             workingDirectory: '$(Pipeline.Workspace)'
             app_location: 'ngapp'
-            config_file_location: 'ngapp/assets/'
+            config_file_location: 'ngapp/browser/assets/'
             skip_app_build: true
             skip_api_build: true
             azure_static_web_apps_api_token: '$(token)'
