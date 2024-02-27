@@ -3,11 +3,11 @@ name: UI Unittest
 # trigger:
 #   branches:
 #     include:
-#       - master
+#       - main
 
 #   paths:
 #     include:
-#       - app/ui/*
+#       - src/angular-swa/*
 
 trigger: none
 pr: none
@@ -16,15 +16,16 @@ pool:
   vmImage: "ubuntu-latest"
 
 variables:
-  nodeVer: '16.15.0'
-  apploc: app/ui
+  nodeVer: '18.17.0'
+  app: angular-swa  
+  apploc: src/$(app)/
 
 stages:
 - stage: UnitTest
   displayName: Jasmine UnitTest
 
   jobs:
-    - job: Jasmin
+    - job: Jasmine
       
       steps:       
       - task: NodeTool@0
@@ -32,7 +33,7 @@ stages:
           versionSpec: $(nodeVer)
         displayName: Install Node $(nodeVer)
         
-      - script: npm i -g @angular/cli@14        
+      # - script: npm i -g @angular/cli@17        
       
       - task: Cache@2
         displayName: Setup Node Cache
@@ -46,7 +47,7 @@ stages:
         workingDirectory: $(apploc)
         condition: eq(variables['npmCache'],False)
       
-      - script: ng test --watch false --code-coverage true
+      - script: npm run test --watch false --code-coverage true
         displayName: 'Test Angular'
         workingDirectory:  $(apploc)
 
