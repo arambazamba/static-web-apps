@@ -25,7 +25,7 @@ stages:
   displayName: Jasmine UnitTest
 
   jobs:
-    - job: Jasmine
+    - job: Test
       
       steps:       
       - task: NodeTool@0
@@ -47,7 +47,7 @@ stages:
         workingDirectory: $(apploc)
         condition: eq(variables['npmCache'],False)
       
-      - script: npm run test --watch false --code-coverage true
+      - script: npm run test --watch false --code-coverage true --browsers ChromeHeadless
         displayName: 'Test Angular'
         workingDirectory:  $(apploc)
 
