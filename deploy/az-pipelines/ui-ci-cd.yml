@@ -16,7 +16,8 @@ pool:
 
 variables:
   nodeVer: '18.17.0'
-  apploc: src/angular-swa/
+  app: angular-swa  
+  apploc: src/$(app)/
   # token: set as pipeline variable
 
 stages:
