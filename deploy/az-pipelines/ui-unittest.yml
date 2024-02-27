@@ -33,7 +33,8 @@ stages:
           versionSpec: $(nodeVer)
         displayName: Install Node $(nodeVer)
         
-      - script: npm i -g @angular/cli@17        
+      - script: npm i -g @angular/cli@17      
+        displayName: Install Angular CLI 
       
       - task: Cache@2
         displayName: Setup Node Cache
