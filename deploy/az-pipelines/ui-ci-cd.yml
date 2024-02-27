@@ -43,13 +43,13 @@ stages:
         workingDirectory: $(apploc)
         condition: eq(variables['npmCache'],False)
 
-      - script: npm run build-prod
+      - script: npm run build
         displayName: 'Build App'
         workingDirectory: $(apploc)
 
       - task: PublishBuildArtifacts@1
         inputs:
-          PathtoPublish: $(apploc)dist/maintenance-ui
+          PathtoPublish: $(apploc)dist/angular-swa
           ArtifactName: 'ngapp'
           publishLocation: 'Container'
         displayName: 'Publish Artifacts'
